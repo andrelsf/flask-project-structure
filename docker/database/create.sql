@@ -1,0 +1,3 @@
+CREATE DATABASE project;
+CREATE DATABASE project_dev;
+CREATE DATABASE project_test;

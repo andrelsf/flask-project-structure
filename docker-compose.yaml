@@ -1,0 +1,56 @@
+version: "3.5"
+
+networks: 
+  net-project:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 10.1.0.0/24
+
+services: 
+  api:
+    hostname: api-server
+    build:
+      context: ./api
+      dockerfile: Dockerfile
+    labels:
+      com.dev.linux.author: "Andre Ferreira"
+      com.dev.linux.email: "andre.dev.linux@gmail.com"
+      com.dev.linux.description: "Python FlaskRESTful Structure Project"
+      com.dev.linux.license: "MIT"
+    env_file:
+      - ./.env
+    volumes:
+      - ./api:/usr/src/app
+    restart:
+      on-failure
+    links:
+      - postgres-server
+    depends_on: 
+      - postgres-server
+    ports:
+      - "80:5000"
+    extra_hosts: 
+      - "postgres-server:10.1.0.3"
+    networks:
+      net-project:
+        ipv4_address: "10.1.0.2"
+
+  postgres-server:
+    hostname: postgres-server
+    build:
+      context: ./docker/database
+      dockerfile: Dockerfile
+    env_file:
+      - ./api/.env
+    volumes:
+      - ./docker/database/data:/var/lib/postgresql/data/
+    expose: 
+      - 5432
+    networks:
+      net-project:
+        ipv4_address: "10.1.0.3"
+
+    
+    
