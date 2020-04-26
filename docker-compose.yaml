@@ -22,7 +22,7 @@ services:
     env_file:
       - ./.env
     volumes:
-      - ./api:/usr/src/app
+      - ./api:/usr/src/api
     restart:
       on-failure
     links:
@@ -43,7 +43,7 @@ services:
       context: ./docker/database
       dockerfile: Dockerfile
     env_file:
-      - ./api/.env
+      - ./docker/database/.env
     volumes:
       - ./docker/database/data:/var/lib/postgresql/data/
     expose: 

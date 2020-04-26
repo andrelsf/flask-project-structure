@@ -1,7 +1,7 @@
 # encoding: utf-8
 # file: api/errors/handler.py
 
-from api.app import app
+from api.run import app
 from flask import json
 from werkzeug.exceptions import HTTPException
 
