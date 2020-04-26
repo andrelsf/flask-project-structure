@@ -1,5 +1,6 @@
-api/.env
-api/__pycache__
+api/env
 docker/database/data
 api/errors/__pycache__
 api/resources/__pycache__
+api/__pycache__
+api/.env
