@@ -14,6 +14,9 @@ app.config.from_pyfile('./utils/config.py')
 # SQLAlchemy
 db = SQLAlchemy(app)
 
+# Handler Errors
+from api.errors.handler import handlerException
+
 # Import Resources
 from api.resources.ping import Ping
 

@@ -1,3 +1,4 @@
 api/env
+api/errors/__pycache__
 api/resources/__pycache__
 api/__pycache__
