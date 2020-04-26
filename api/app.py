@@ -3,15 +3,19 @@
 
 from flask import Flask
 from flask_restful import Api
-from resources.ping import Ping
+from flask_sqlalchemy import SQLAlchemy
 
 # APP
 app = Flask(__name__)
 api = Api(app)
 
-# routes
-api.add_resource(Ping, '/', '/ping')
+app.config.from_pyfile('./utils/config.py')
 
-# Running APP
-if __name__ == '__main__':
-  app.run(debug=True)
+# SQLAlchemy
+db = SQLAlchemy(app)
+
+# Import Resources
+from api.resources.ping import Ping
+
+# routes
+api.add_resource( Ping, '/', '/ping')
