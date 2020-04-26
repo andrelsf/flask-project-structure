@@ -20,8 +20,17 @@ pip3 install flask-restful
 ```bash
 export FLASK_ENV=development
 export FLASK_APP=app.py
-python3.6 app.py
+flask run --host=0.0.0.0
 ```
+
+### Flask SQLAlchemy
+
+`Install:`
+```
+pip3 install flask-sqlalchemy
+```
+
+> Add in requirements.txt file
 
 ### References
 
