@@ -19,8 +19,6 @@ services:
       com.dev.linux.email: "andre.dev.linux@gmail.com"
       com.dev.linux.description: "Python FlaskRESTful Structure Project"
       com.dev.linux.license: "MIT"
-    env_file:
-      - ./.env
     volumes:
       - ./api:/usr/src/api
     restart:
